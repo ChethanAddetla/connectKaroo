@@ -48,6 +48,7 @@ async function validatetoken(event){
 
     let response = await result.json();
 
+    
     if(!result.ok){
         alert("Session Expired! Refresh the page ")
         window.location.href="content.html"
