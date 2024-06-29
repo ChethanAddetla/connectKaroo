@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up for [Social Media Name]</title>
+  <script src="register.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Sign Up for Connect Karo!</h1>
+
+  <form action="#" method="post">
+    <label for="id">User Id:</label>
+    <input type="number" name="number" onchange="handleInputs(event)" id="id" required>
+    <br>
+    <label for="name">Full Name:</label>
+    <input type="text" name="name" onchange="handleInputs(event)" id="name" required>
+    <br>
+    <label for="email">Email:</label>
+    <input type="email" name="email" onchange="handleInputs(event)" id="email" required>
+    <br>
+    <label for="age">Age:</label>
+    <input type="number" name="age" onchange="handleInputs(event)" id="age" required>
+    <br>
+    <label for="address">Address:</label>
+    <input type="text" name="address" onchange="handleInputs(event)" id="address" required>
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" name="password" onchange="handleInputs(event)" id="password" required>
+    <br>
+    <label for="confirm-password">Confirm Password:</label>
+    <input type="password" name="confirm-password" onchange="handlePass(event)" id="confirm-password" required>
+    <br>
+    <div class="checkbox-group">
+      <input type="checkbox" name="terms" id="terms" required>
+      <label for="terms">I agree to the Terms of Service and Privacy Policy.</label>
+    </div>
+
+    <p id="msg"></p>
+
+    <button type="submit" id="register"  onclick="register1(event)">Sign Up</button>
+  </form>
+
+  <div id="error-message"></div>
+
+  <p>Already have an account? <a href="loginpage.html">Log In</a></p>
+</body>
+</html>

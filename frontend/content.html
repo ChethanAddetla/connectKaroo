@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Plans</title>
+    <script src="content.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 50px;
+        }
+        .container {
+            display: inline-block;
+            text-align: left;
+        }
+        .plan-button {
+            display: block;
+            width: 200px;
+            padding: 15px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .basic {
+            background-color: #d9d9d9;
+        }
+        .premium {
+            background-color: #ffcc00;
+        }
+        .gold {
+            background-color: #ff9900;
+        }
+        .plan-button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Choose Your Content</h1>
+        <button class="plan-button basic" id="basic" onclick="basic1(event)">Basic Content</button>
+        <button class="plan-button premium" id ="premium" onclick="premium(event)">Premium Content</button>
+        <button class="plan-button gold" id="golden" onclick="golden(event)">Golden Content</button>
+
+        <button onclick="refreshb(event)">Refresh</button><br>
+        <br>
+        <br>
+        <button onclick="viewpost()">View Posts</button>
+
+        <a href="addpost.html">Create Post</a>
+    </div>
+</body>
+</html>
