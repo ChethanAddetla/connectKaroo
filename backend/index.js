@@ -1,5 +1,6 @@
 const express = require("express");
 const userRoutes = require("./Routes/userRoutes")
+const postRoutes = require("./Routes/postRoutes")
 const validateRoutes = require("../backend/Routes/validateRoutes")
 const cors = require("cors")
 const mongoose = require("mongoose");
@@ -14,6 +15,7 @@ const server = express();
 server.use(express.json());
 server.use(cors())
 server.use(cookieParser())
+server.use('/post',postRoutes)
 server.use(userRoutes)
 server.use("/val",validateRoutes)
 server.listen(PORT,()=>console.log("Server is running on port "+PORT))

@@ -5,10 +5,20 @@ let myobj={
 function handleInputs(event){
 myobj[event.target.id] = event.target.value;
 
+// if(Object.keys(myobj).length != 2){
+    
+//     document.getElementById("login").disabled=true;
+// }
+// else{
+//     document.getElementById("login").disabled=false;
+// }
+
+
 }
 async function login(event){
 
     event.preventDefault();
+   
 
     const result  = await fetch("http://localhost:5000/login",{
         method:"POST",
@@ -27,6 +37,7 @@ async function login(event){
     }
     else{
         alert(`Login failed! ,${response.msg}`)
+       
     }
 
 

@@ -23,7 +23,7 @@ userroutes.post('/login',async(req,res)=>{
    
     let userdata = await userModel.find();
    
-    
+    try{
 
     let x = userdata.filter(item =>item.id==data.id);
     if(x.length > 0){
@@ -49,6 +49,10 @@ userroutes.post('/login',async(req,res)=>{
         res.status(401).send({ msg: "User Not Found!" });
     
     }
+}
+catch(error){
+    res.status(400).send({msg:error})
+}
 })
 
 
@@ -127,7 +131,7 @@ userroutes.post('/addpost',async (req,res)=>{
     res.json({data:req.body})
 })
 const generatetoken=(data)=>{
-    return jwt.sign(data,process.env.SECURITY_KEY,{expiresIn:'1m'})
+    return jwt.sign(data,process.env.SECURITY_KEY,{expiresIn:'10m'})
 }
 
 
