@@ -17,15 +17,40 @@
             display: flex;
 
         }
+        .topNav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+         }
+
+        .topNav > div {
+       margin-right: 20px;
+        }
+        .followers{
+            display: flex;
+            align-items: center;
+        }
+        #user{
+            margin-bottom: 0px;
+        }
     </style>
 </head>
 <body onload="validateToken()">
-    <span>
-        <h2>Posts by all the Peers are presented here.</h2>
-        <button onclick="createPostPage()">Create Post</button>
-        <button onclick="logout()">Logout</button>
-        <input type="text" placeholder="Search Post by Author Name:" oninput="handleAuthorPost(event)">
-    </span>
+    <div class="topNav">
+        <div>
+            <h1>Posts by all the Peers are presented here.</h1>
+            <button onclick="createPostPage()">Create Post</button>
+            <button onclick="logout()">Logout</button>
+            <input type="text" placeholder="Search Post by Author Name:" oninput="handleAuthorPost(event)">
+        </div>
+        <div>
+        <h1 id="user"></h1>
+        <div class="followers">
+            <h3 id="flNames" onclick="flNames(event)">Followers : </h3><h2 id="followerCount"></h2>
+        </div>
+        
+        </div>
+    </div>
     
     <h3 id="msg"></h3>
     <div id="post-container"></div>

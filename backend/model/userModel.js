@@ -28,7 +28,9 @@ const userSchema = new mongoose.Schema({
     encpass:{
         type:String,
         required:true
-    }
+    },
+    followers:Array
+    
 
 })
 const userModel = new mongoose.model("Peer",userSchema);

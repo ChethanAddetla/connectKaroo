@@ -23,7 +23,7 @@ function handlePass(event){
 async function register1(event){
     event.preventDefault();
 
-    const result = await fetch("http://localhost:5000/register",{
+    const result = await fetch("http://localhost:5000/user/register",{
         method :"POST",
         headers:{"Content-type":"application/json"},
         body :JSON.stringify(myobj)

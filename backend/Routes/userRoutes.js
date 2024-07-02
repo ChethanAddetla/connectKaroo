@@ -115,24 +115,56 @@ userroutes.post('/addpost',async (req,res)=>{
 
     
         let result = jwt.verify(token,process.env.SECURITY_KEY);
-        console.log(result)
         req.body.username = result.name;
+        try{
         let post = new postModel({...req.body})
         await post.save();
+        // console.log(post)
+        res.json({data:req.body})
+        }
+        catch{
+            res.status(400).send({msg:"All the entries are needed !"})
+        }
+       
     }
     catch(error){
-        res.status(401).send({msg:error})
+        res.status(400).send({msg:"Token Experied !"})
     }
     
 
-   
-
-
-    res.json({data:req.body})
 })
 const generatetoken=(data)=>{
     return jwt.sign(data,process.env.SECURITY_KEY,{expiresIn:'10m'})
 }
+
+
+userroutes.put('/followers/:postusername',async(req,res)=>{
+    let logedInUser =req.body.username;
+    let postusername  = req.params.postusername;
+
+    let result  = await userModel.find({name :postusername})
+    // console.log(result);
+    // console.log(logedInUser)
+    if(result.length >0){
+        let userid = result[0]._id;
+        // console.log(userid)
+        if(result[0].followers.includes(logedInUser)){
+            // console.log(result[0].followers)
+            res.send({msg:`You are already following the ${postusername}`})
+        }
+        else{
+            result[0].followers.push(logedInUser);
+            let result2 = await userModel.findByIdAndUpdate(userid,result[0],{new:true})
+            // console.log(result2.followers)
+            res.send({length : result2.followers.length,status:true,msg:`Started following ${postusername}`})
+        }
+       
+    }
+    else{
+        res.send({msg : "Couldn't find the User who created post"})
+    }
+    
+})
 
 
 module.exports = userroutes;

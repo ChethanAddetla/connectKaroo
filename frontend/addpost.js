@@ -14,7 +14,7 @@ async function createPost(event){
     event.preventDefault();
    
 
-    let result  = await fetch("http://localhost:5000/addpost",{
+    let result  = await fetch("http://localhost:5000/user/addpost",{
         method :'POST',
         headers :{
             'Content-type' :'application/json',
@@ -26,10 +26,11 @@ async function createPost(event){
     let response  = await result.json();
     console.log(result)
     if(result.ok){
-        console.log({msg:"Post added successfully",post :response})
+        alert("Post added Successfully!");
+        window.location.href="viewpost.html"
     }
     else{
-        console.log({response})
+        console.log(response.msg)
     }
 
     

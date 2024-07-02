@@ -16,6 +16,6 @@ server.use(express.json());
 server.use(cors())
 server.use(cookieParser())
 server.use('/post',postRoutes)
-server.use(userRoutes)
+server.use('/user',userRoutes)
 server.use("/val",validateRoutes)
 server.listen(PORT,()=>console.log("Server is running on port "+PORT))

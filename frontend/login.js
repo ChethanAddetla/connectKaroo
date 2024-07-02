@@ -20,7 +20,7 @@ async function login(event){
     event.preventDefault();
    
 
-    const result  = await fetch("http://localhost:5000/login",{
+    const result  = await fetch("http://localhost:5000/user/login",{
         method:"POST",
         headers :{'Content-type' : 'application/json'},
         body:JSON.stringify(myobj)

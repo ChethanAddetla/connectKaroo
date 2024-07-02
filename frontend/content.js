@@ -44,7 +44,7 @@ async function refreshb(event){
     event.preventDefault();
     
     let refreshtoken = localStorage.getItem('refreshtoken');
-    const result  = await fetch("http://localhost:5000/refresh",{
+    const result  = await fetch("http://localhost:5000/user/refresh",{
         method:"POST",
         headers :{
             'Content-type' : 'application/json',
